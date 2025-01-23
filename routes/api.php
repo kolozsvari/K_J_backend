@@ -9,3 +9,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/ingatlan', [IngatlanController::class, 'Index']);
+Route::post('/ingatlan', [IngatlanController::class, 'Store']);
+Route::delete('/ingatlan/{id}', [IngatlanController::class, 'destroy']);

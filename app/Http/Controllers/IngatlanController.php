@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ingatlan;
+use Illuminate\Contracts\Validation\Validator as ValidationValidator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class IngatlanController extends Controller
 {
@@ -12,7 +14,7 @@ class IngatlanController extends Controller
      */
     public function index()
     {
-        return Ingatlan::all();
+        return Ingatlan::with('kategoria')->get();
     }
 
     /**
@@ -20,7 +22,23 @@ class IngatlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'leiras' => 'string',
+            'hirdetesDatuma' => 'date',
+            'tehermentes' => 'boolean|required',
+            'ar' => 'integer|required',
+            'kepUrl' => 'string',
+            'kategoria' => 'integer|required|exists:kategoriak,id',
+        ]);
+
+        if ($validator->fails()){
+            //return response()->json(['message' => 'Hiányos adatok'], 400);
+            return response('Hiányos adatok!',400);
+            //return response()->json($validator->errors(), 400);
+
+        }
+        $ingatlan = Ingatlan::create($request->all());
+        return response()->json(['Id' => $ingatlan->id]);
     }
 
     /**
@@ -42,8 +60,13 @@ class IngatlanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Ingatlan $ingatlan)
+    public function destroy($id)
     {
-        //
+        $ingatlan = Ingatlan::find($id);
+        if (!$ingatlan){
+            return response('Az ingatlan nem létezik!',404);
+        }
+        $ingatlan->delete();
+        return response('', 204);
     }
 }

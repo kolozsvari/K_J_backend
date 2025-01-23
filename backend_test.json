@@ -1,0 +1,52 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "ingatlan_test",
+    "collectionId": "03a88508-b3e1-4b18-85e6-e4573edbee9a",
+    "dateExported": "2025-01-23T08:00:56.124Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "b39f1ce3-c7ab-42b6-9217-d7221169ccda",
+            "colId": "03a88508-b3e1-4b18-85e6-e4573edbee9a",
+            "containerId": "",
+            "name": "read all ingatlan",
+            "url": "http://127.0.0.1:8000/api/ingatlan",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-01-23T07:12:43.117Z",
+            "modified": "2025-01-23T07:13:36.136Z",
+            "headers": []
+        },
+        {
+            "_id": "fec61d20-150a-4c4f-b284-34350211c079",
+            "colId": "03a88508-b3e1-4b18-85e6-e4573edbee9a",
+            "containerId": "",
+            "name": "create new ingatlan",
+            "url": "http://127.0.0.1:8000/api/ingatlan",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-01-23T07:26:27.357Z",
+            "modified": "2025-01-23T07:29:49.209Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n \"kategoria\": 2,\r\n \"leiras\": \"Eladó ...\",\r\n \"hirdetesDatuma\": \"2022-03-19\",\r\n \"tehermentes\": true,\r\n \"ar\": 45000000,\r\n \"kepUrl\": \"https://pictures.com/apartman.jpg\"\r\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "210146e3-c32e-4b44-8fed-309cf1bc9a69",
+            "colId": "03a88508-b3e1-4b18-85e6-e4573edbee9a",
+            "containerId": "",
+            "name": "delete ingatlan ",
+            "url": "http://127.0.0.1:8000/api/ingatlan/7",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2025-01-23T07:59:58.338Z",
+            "modified": "2025-01-23T08:00:09.349Z",
+            "headers": []
+        }
+    ],
+    "ref": "o3hky7-gJVaWNp7Bw8Tb0asU8K0E4kg_CionMEOubyFumn2W1kcq3DZO4te-H1v9Ti38kCEq-I1wDSn54WBpSQ"
+}
